@@ -182,17 +182,17 @@ class IssueManagerTest {
         assertEquals(expected, actual);
     }
 
-//    @Test
-//    void shouldChangeAndSetStatusIssue() {
-//        long idItem = item1.getId();
-//
-//        doReturn(item1).when(repository).findById(idItem);
-//        manager.changeStatusIssue(idItem);
-//
-//        assertFalse(item1.isOpen());
-//
-//        manager.setStatusIssue(idItem, true);
-//
-//        assertTrue(item1.isOpen());
-//    }
+    @Test
+    void shouldChangeIssueStatusById() {
+        int idIssue = first.getId();
+
+        doReturn(first).when(repository).findById(idIssue);
+        manager.changeIssueStatusById(idIssue);
+
+        assertFalse(first.isOpen());
+
+        manager.updateIssueStatus(idIssue, true);
+
+        assertTrue(first.isOpen());
+    }
 }
