@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IssueRepository {
-    private List<Issue> issues = new ArrayList<>();
+    private final List<Issue> issues = new ArrayList<>();
 
     public List<Issue> findAll() {
         return issues;
@@ -26,15 +26,10 @@ public class IssueRepository {
     }
 
     public void removeById(int id) {
-        for (Issue issue : issues) {
-            if (issue.getId() == id) {
-                issues.remove(issue);
-            }
-        }
+        issues.removeIf((issue) -> issue.getId() == id);
     }
 
     public void removeAll() {
         issues.clear();
     }
-
 }
