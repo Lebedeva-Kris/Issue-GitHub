@@ -36,4 +36,5 @@ public class IssueRepository {
     public void removeAll() {
         issues.clear();
     }
+
 }
