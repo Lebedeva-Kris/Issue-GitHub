@@ -73,11 +73,4 @@ public class IssueManager {
         repository.findById(id).setOpen(isOpen);
     }
 
-//    public List<IssueItem> sortByCountCommentAsc() {
-//        return sortBy(new CountCommentAscComparator());
-//    }
-//    public List<IssueItem> sortByCountCommentDesc() {
-//        return sortBy(new CountCommentDescComparator());
-//    }
-
 }
