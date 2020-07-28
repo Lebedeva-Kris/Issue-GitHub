@@ -6,20 +6,19 @@ import java.util.*;
 
 @Data
 public class Issue {
-    private int id;
-    private String label;
-    private String milestones;
-    private boolean isOpen;
-    private String author;
+    private static int minId = 1;
+    private int id = minId++;
+    private boolean isOpen = true;
+    private String author = "";
     private Set<String> labels = new HashSet<>();
     private Set<String> assignees = new HashSet<>();
 
-    private int commentNumber;
+    private int commentNumber = 0;
     private Calendar creationDate = new GregorianCalendar();
     private Calendar lastUpdate = new GregorianCalendar();
 
-    private String title;
-    private String description;
+    private String title = "";
+    private String description = "";
 
     public Issue() {
     }
@@ -71,7 +70,7 @@ public class Issue {
         this.description = description;
     }
 
-    public void changeIssueStatus(){
+    public void changeIssueStatus() {
         isOpen = !isOpen;
 
     }
