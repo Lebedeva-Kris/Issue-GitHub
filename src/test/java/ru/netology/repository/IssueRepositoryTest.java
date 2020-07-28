@@ -2,33 +2,21 @@ package ru.netology.repository;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 import ru.netology.domain.Issue;
-import ru.netology.manager.IssueManager;
-
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@ExtendWith(MockitoExtension.class)
 class IssueRepositoryTest {
-    @Mock
-    private IssueRepository repository;
-    @InjectMocks
-    private IssueManager manager;
+    private IssueRepository repository = new IssueRepository();
 
-    private Issue first = new Issue(true, "King", Collections.emptyList(), Collections.emptyList());
-    private Issue second = new Issue(true, "Gerz", Arrays.asList("bug", "question", "task"), Arrays.asList("nobody", "somebody", "who"));
-    private Issue third = new Issue(true, "somebody", Arrays.asList("bug", "question"), Arrays.asList("somebody", "who"));
-    private Issue fourth = new Issue(false, "King", Collections.singletonList("bug"), Collections.singletonList("who"));
-    private Issue fifth = new Issue(false, "Gerz", Arrays.asList("feature", "documentation", "something"), Arrays.asList("Timur", "Oleg", "Ivan"));
-
+    private Issue first = new Issue(true, "author1", Collections.emptyList(), Collections.emptyList());
+    private Issue second = new Issue(true, "author2", Arrays.asList("label1", "label2", "label3"), Arrays.asList("assignee1", "assignee2", "assignee3"));
+    private Issue third = new Issue(true, "author3", Arrays.asList("label1", "label2"), Arrays.asList("assignee2", "assignee3"));
+    private Issue fourth = new Issue(false, "author1", Collections.singletonList("label1"), Collections.singletonList("assignee3"));
+    private Issue fifth = new Issue(false, "author2", Arrays.asList("label4", "label5", "label6"), Arrays.asList("assignee4", "assignee5", "assignee6"));
 
     @BeforeEach
     void setUp() {
