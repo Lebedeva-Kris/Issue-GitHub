@@ -57,8 +57,8 @@ class IssueManagerTest {
     void shouldFilterByAuthorIfHeIsNotExist() {
         doReturn(Arrays.asList(first, second, third, fourth, fifth, sixth, seventh, eight)).when(repository).findAll();
 
-        Set<Issue> expected = new HashSet<>(Collections.emptyList());
-        Set<Issue> actual = new HashSet<>(manager.filterByAuthor("author4"));
+        List<Issue> expected = Collections.emptyList();
+        List<Issue> actual = manager.filterByAuthor("author4");
 
         assertEquals(expected, actual);
     }
@@ -67,8 +67,8 @@ class IssueManagerTest {
     void shouldFilterByAssigneeIfExists() {
         doReturn(Arrays.asList(first, second, third, fourth, fifth, sixth, seventh, eight)).when(repository).findAll();
 
-        Set<Issue> expected = new HashSet<>(Arrays.asList(second, third, fourth));
-        Set<Issue> actual = new HashSet<>(manager.filterByAssignee("assignee3"));
+        List<Issue> expected = Arrays.asList(second, third, fourth);
+        List<Issue> actual = manager.filterByAssignee("assignee3");
         ;
 
         assertEquals(expected, actual);
@@ -78,8 +78,8 @@ class IssueManagerTest {
     void shouldFilterByAssigneeIfNotExists() {
         doReturn(Arrays.asList(first, second, third, fourth, fifth, sixth, seventh, eight)).when(repository).findAll();
 
-        Set<Issue> expected = new HashSet<>(Collections.emptyList());
-        Set<Issue> actual = new HashSet<>(manager.filterByAssignee("assignee7"));
+        List<Issue> expected = Collections.emptyList();
+        List<Issue> actual = manager.filterByAssignee("assignee7");
 
         assertEquals(expected, actual);
     }
@@ -88,10 +88,10 @@ class IssueManagerTest {
     void shouldFilterByLabelsIfExists() {
         doReturn(Arrays.asList(first, second, third, fourth, fifth, sixth, seventh, eight)).when(repository).findAll();
 
-        Set<String> labels = new HashSet<>(Arrays.asList("label1", "label2"));
+        List<String> labels = Arrays.asList("label1", "label2");
 
-        Set<Issue> expected = new HashSet<>(Arrays.asList(second, third));
-        Set<Issue> actual = new HashSet<>(manager.filterByLabels(labels));
+        List<Issue> expected = Arrays.asList(second, third);
+        List<Issue> actual = manager.filterByLabels(labels);
 
         assertEquals(expected, actual);
     }
@@ -100,10 +100,10 @@ class IssueManagerTest {
     void shouldFilterByLabelsIfNotExists() {
         doReturn(Arrays.asList(first, second, third, fourth, fifth, sixth, seventh, eight)).when(repository).findAll();
 
-        Set<String> labels = new HashSet<>(Arrays.asList("label1", "label7"));
+        List<String> labels = Arrays.asList("label1", "label7");
 
-        Set<Issue> expected = Collections.emptySet();
-        Set<Issue> actual = new HashSet<>(manager.filterByLabels(labels));
+        List<Issue> expected = Collections.emptyList();
+        List<Issue> actual = manager.filterByLabels(labels);
 
         assertEquals(expected, actual);
     }
@@ -152,8 +152,8 @@ class IssueManagerTest {
     void shouldShowOpenedIssues() {
         doReturn(Arrays.asList(first, second, third, fourth, fifth, sixth, seventh, eight)).when(repository).findAll();
 
-        Set<Issue> expected = new HashSet<>(Arrays.asList(first, second, third));
-        Set<Issue> actual = new HashSet<>(manager.showOpened());
+        List<Issue> expected = Arrays.asList(first, second, third);
+        List<Issue> actual = manager.showOpened();
 
         assertEquals(expected, actual);
     }
@@ -162,8 +162,8 @@ class IssueManagerTest {
     void shouldShowClosedIssues() {
         doReturn(Arrays.asList(first, second, third, fourth, fifth, sixth, seventh, eight)).when(repository).findAll();
 
-        Set<Issue> expected = new HashSet<>(Arrays.asList(fourth, fifth, sixth, seventh, eight));
-        Set<Issue> actual = new HashSet<>(manager.showClosed());
+        List<Issue> expected = Arrays.asList(fourth, fifth, sixth, seventh, eight);
+        List<Issue> actual = manager.showClosed();
 
         assertEquals(expected, actual);
     }
