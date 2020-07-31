@@ -20,6 +20,7 @@ public class IssueManager {
     public List<Issue> showOpened() {
         return filterBy(Issue::isOpen);
     }
+
     public List<Issue> showClosed() {
         return filterBy((issue) -> !issue.isOpen());
     }
@@ -36,9 +37,11 @@ public class IssueManager {
     public List<Issue> filterByAuthor(String author) {
         return filterBy((issue) -> issue.getAuthor().equals(author));
     }
+
     public List<Issue> filterByLabels(Collection<? extends String> labels) {
         return filterBy((issue) -> issue.getLabels().containsAll(labels));
     }
+
     public List<Issue> filterByAssignee(String assignee) {
         return filterBy((issue) -> issue.getAssignees().contains(assignee));
     }
