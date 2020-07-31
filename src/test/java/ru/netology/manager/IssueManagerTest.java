@@ -33,15 +33,6 @@ class IssueManagerTest {
 
     @BeforeEach
     void setUp() {
-//        doNothing().when(repository).save(item1);
-//        doNothing().when(repository).save(item2);
-//        doNothing().when(repository).save(item3);
-//        doNothing().when(repository).save(item4);
-//        doNothing().when(repository).save(item5);
-//        doNothing().when(repository).save(item6);
-//        doNothing().when(repository).save(item7);
-//        doNothing().when(repository).save(item8);
-
         manager.add(first);
         manager.add(second);
         manager.add(third);
@@ -51,11 +42,6 @@ class IssueManagerTest {
         manager.add(seventh);
         manager.add(eight);
     }
-
-//    @Test
-//    void shouldFailConstructor() {
-//        assertThrows(IllegalArgumentException.class, () -> new IssueManager(null));
-//    }
 
     @Test
     void shouldFilterByAuthorIfHeExists() {
